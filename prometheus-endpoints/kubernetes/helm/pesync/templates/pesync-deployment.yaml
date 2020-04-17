@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+{{- if .Values.env.pesync.IS_DAEMONSET }}
+kind: DaemonSet
+{{ else }}
+kind: Deployment
+{{- end }}
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  {{- if .Values.env.pesync.IS_DAEMONSET }}
+  {{ else }}
+  replicas: 1
+  {{- end }}
+  selector:
+    matchLabels:
+      component: pesync
+  template:
+    metadata:
+      labels:
+        component: pesync
+    spec:
+      containers:
+      - name: pesync 
+        image: {{ .Values.image.repository }}
+        resources:
+          requests:
+              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+              ephemeral-storage: {{ .Values.resources.requests.ephemeralStorage }}
+          limits:
+              memory: {{ .Values.resources.limits.memory }}
+              ephemeral-storage: {{ .Values.resources.limits.ephemeralStorage }}
+        ports:
+          - containerPort: 9092
+        envFrom:
+        - configMapRef:
+            name: {{ template "pesync.fullname" . }}-daemonset-env
+        env:
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: RVBD_DSAHOST
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+        tty: true
+        # command:
+        #   - /bin/bash
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+
+      imagePullSecrets:
+        - name: regcred
+      

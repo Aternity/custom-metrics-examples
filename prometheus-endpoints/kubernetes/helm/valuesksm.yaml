@@ -1,0 +1,87 @@
+# Default values for pesync.
+image:
+    #image.repository -- Repository that contains the PESync image.
+    repository: docker.io/aternity/pe-sync-service
+    #image.pullSecrets -- Specify docker-registry secret names as an array
+    pullSecrets: [regcred]
+    # image.tag -- pesync image version.
+    tag: ArtifactFullVerStr
+    # image.pullPolicy -- Kubernetes pull policy
+    pullPolicy: IfNotPresent
+
+configMap:
+    # configMap.name -- Name of configMap to be included.
+    name: pesync-env
+    # configMap.namespace -- Namespace where the configMap will be placed.
+    namespace: default
+
+resources:
+    requests:
+      memory: 1G
+      cpu: 300m
+      ephemeralStorage: 1G
+    limits:
+      memory: 1G
+      cpu: 1.0
+      ephemeralStorage: 1G
+
+env:
+    pesync:
+        RVBD_DSAPORT: 7074
+        METRIC_URL: "http://kube-state-metrics.default.svc.cluster.local:8080/metrics"
+        AUTH_TOKEN: ""
+        AUTH_TOKEN_PATH: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        API_NAME: "KSM"
+        IS_DAEMONSET: false
+        LABEL_MAPPINGS: "{}"
+        DIMENSIONED_LABELS: "['*']"
+
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+

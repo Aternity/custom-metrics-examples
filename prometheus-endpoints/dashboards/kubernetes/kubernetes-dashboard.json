@@ -1,0 +1,3992 @@
+{
+    "name": "Kafka Kubernetes Cluster with Tx Metrics",
+    "tabs": [
+      {
+        "name": "Clusters",
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Total CPU Usage of All Containers (s)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_cpu_usage_seconds_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_cpu_usage_seconds_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_cpu_usage_seconds_delta"
+                }
+              }
+            ],
+            "visType": "STACK",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total CPU Usage of All Containers (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_cpu_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_cpu_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_cpu_usage_pct"
+                }
+              }
+            ],
+            "visType": "STACK",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total CPU Spec of All Containers (s)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_cpu_period",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "SUMMARY",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total CPU Quota of All Containers (s)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_cpu_quota",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "SUMMARY",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".StandardCardDef",
+            "type": "TIME_OVERVIEW"
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total RSS Memory Usage of All Containers (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_rss_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Memory Limit of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_memory_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".StandardCardDef",
+            "type": "DELAYS_TIME_SERIES"
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total RSS Memory Usage of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_memory_rss",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total File System Usage of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_fs_usage_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total File System Usage of All Containers (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_fs_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total File System Limit of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_fs_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_fs_limit_bytes",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/CADVISOR/container_fs_limit_bytes"
+                }
+              }
+            ],
+            "visType": "SUMMARY",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Network Received of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_receive_bytes_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Network Sent of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_transmit_bytes_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_transmit_bytes_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_transmit_bytes_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Network Receive Errors of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_receive_errors_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Network Sent Errors of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_transmit_errors_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Network Receive Dropped of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_receive_packets_dropped_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Network Transmit Dropped of All Containers (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_transmit_packets_dropped_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Number of Running Containers",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_status_running",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "CNT",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_status_running",
+                  "type": "metric",
+                  "statistic": "CNT",
+                  "displayName": "pe/KSM/kube_pod_container_status_running"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Number of Terminated Containers",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_status_terminated",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": ""
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".StandardCardDef",
+            "type": "SERVER_RESPONSE_TIME"
+          },
+          {
+            "class": ".StandardCardDef",
+            "type": "APP_MAP"
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".StandardCardDef",
+            "type": "TRANSACTION_COUNT"
+          },
+          {
+            "class": ".StandardCardDef",
+            "type": "PERFORMANCE_GRAPH"
+          }
+        ]
+      },
+      {
+        "name": "Containers",
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Container Total CPU Usage (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_cpu_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_cpu_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_cpu_usage_pct"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container Total CPU Usage (s)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_cpu_usage_seconds_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_cpu_usage_seconds_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_cpu_usage_seconds_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Throttled CPU per Container (s)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_cpu_cfs_throttled_periods_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_cpu_cfs_throttled_periods_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_cpu_cfs_throttled_periods_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container RSS Memory Usage (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_memory_rss",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_memory_rss",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_memory_rss"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container RSS Memory Usage (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_rss_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_rss_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_rss_usage_pct"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container Memory Limit (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_memory_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_spec_memory_limit_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_spec_memory_limit_bytes"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container Memory Requested Limit (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_memory_reservation_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_spec_memory_reservation_limit_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_spec_memory_reservation_limit_bytes"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container CPU Quota (s)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_cpu_quota",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_spec_cpu_quota",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_spec_cpu_quota"
+                }
+              }
+            ],
+            "visType": "STACK",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container Restarts (#)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_status_restarts",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 7,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_status_restarts",
+                  "type": "metric",
+                  "statistic": "SUM",
+                  "displayName": "pe/KSM/kube_pod_container_status_restarts"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container File System Usage (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_fs_usage_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_fs_usage_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_fs_usage_bytes"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container File System Usage (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_fs_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_fs_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_fs_usage_pct"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container File System Limit (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_fs_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_fs_limit_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_fs_limit_bytes"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Currently Terminated Containers",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_status_terminated",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_status_terminated",
+                    "type": "metric",
+                    "statistic": "SUM",
+                    "displayName": "pe/KSM/kube_pod_container_status_terminated"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 0.5,
+                    "majorThreshold": 0.7,
+                    "criticalThreshold": 0.85,
+                    "columnHeader": "State",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_status_terminated",
+                  "type": "metric",
+                  "statistic": "SUM",
+                  "displayName": "pe/KSM/kube_pod_container_status_terminated"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Last Terminated Containers",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_status_last_terminated_reason",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "reason",
+                    "displayField": "reason",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true,
+                  "reason": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_status_last_terminated_reason",
+                    "type": "metric",
+                    "statistic": "SUM",
+                    "displayName": "pe/KSM/kube_pod_container_status_last_terminated_reason"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "BAR",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "Number of Terminations",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_status_last_terminated_reason",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_pod_container_status_last_terminated_reason"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          }
+        ]
+      },
+      {
+        "name": "PODs",
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Number of Running Pods",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KUBELET/kubelet_running_pod_count",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KUBELET/kubelet_running_pod_count",
+                  "type": "metric",
+                  "statistic": "SUM",
+                  "displayName": "pe/KUBELET/kubelet_running_pod_count"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Total Number of Evicted Pods by Eviction Signal",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KUBELET/kubelet_evictions",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "eviction_signal",
+                    "displayField": "eviction_signal",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "eviction_signal": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 6,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KUBELET/kubelet_evictions",
+                  "type": "metric",
+                  "statistic": "SUM",
+                  "displayName": "pe/KUBELET/kubelet_evictions"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total CPU Usage (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_cpu_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 10,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_cpu_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_cpu_usage_pct"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod File System Usage (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_fs_usage_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 10,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_fs_usage_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_fs_usage_bytes"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod File System Usage (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_fs_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 10,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_fs_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_fs_usage_pct"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod File System Limit (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_fs_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_fs_limit_bytes",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/CADVISOR/container_fs_limit_bytes"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Memory Usage (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_memory_rss",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 10,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_memory_rss",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_memory_rss"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Memory Usage (%)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/SYNTH/container_rss_usage_pct",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 10,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/SYNTH/container_rss_usage_pct",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/SYNTH/container_rss_usage_pct"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Memory Limit (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_spec_memory_limit_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 10,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_spec_memory_limit_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_spec_memory_limit_bytes"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total Network Received  (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_receive_bytes_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_receive_bytes_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_receive_bytes_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total Network Sent  (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_transmit_bytes_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_transmit_bytes_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_transmit_bytes_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total Network Received Drops (packets)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_receive_packets_dropped_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_receive_packets_dropped_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_receive_packets_dropped_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total Network Transmit Drops (packets)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_transmit_packets_dropped_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_transmit_packets_dropped_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_transmit_packets_dropped_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": null,
+            "seriesList": [],
+            "visType": null,
+            "cardSize": "NORMAL",
+            "hole": true,
+            "datasource": {
+              "type": "APM",
+              "name": "cmx"
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total Network Received Errors",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_receive_errors_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_receive_errors_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_receive_errors_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Total Network Transmit Errors",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/CADVISOR/container_network_transmit_errors_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/CADVISOR/container_network_transmit_errors_delta",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/CADVISOR/container_network_transmit_errors_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Evictions by Eviction Signal",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KUBELET/kubelet_evictions_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "eviction_signal",
+                    "displayField": "eviction_signal",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "eviction_signal": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 6,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KUBELET/kubelet_evictions_delta",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KUBELET/kubelet_evictions_delta"
+                }
+              }
+            ],
+            "visType": "LINE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Evictions by Server",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KUBELET/kubelet_evictions_delta",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "server",
+                    "displayField": "server",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "server": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 6,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KUBELET/kubelet_evictions_delta",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KUBELET/kubelet_evictions_delta"
+                }
+              }
+            ],
+            "visType": "SPARK",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Last Terminated Reason",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_status_last_terminated_reason",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "reason",
+                    "displayField": "reason",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "reason": true,
+                  "pod": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_status_last_terminated_reason",
+                    "type": "metric",
+                    "statistic": "SUM",
+                    "displayName": "pe/KSM/kube_pod_container_status_last_terminated_reason"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 300,
+                    "majorThreshold": 200,
+                    "criticalThreshold": 100,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_status_last_terminated_reason",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_pod_container_status_last_terminated_reason"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          }
+        ]
+      },
+      {
+        "name": "Nodes",
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Node Status",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_node_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "Ready",
+                    "displayValue": "Ready"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true,
+                  "condition": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_node_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_node_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": true,
+                "orderByField": {
+                  "name": "pe/KSM/kube_node_info",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_node_info"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_node_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "Available",
+                    "displayValue": "Available"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true,
+                  "condition": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_node_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_node_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": true,
+                "orderByField": {
+                  "name": "pe/KSM/kube_node_info",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_node_info"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Node Condition",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_node_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "DiskPressure",
+                    "displayValue": "DiskPressure"
+                  },
+                  {
+                    "field": "status",
+                    "displayField": "status",
+                    "value": "true",
+                    "displayValue": "true"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true,
+                  "condition": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "SUM",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_node_status_condition",
+                    "type": "metric",
+                    "statistic": "SUM",
+                    "displayName": "pe/KSM/kube_node_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": -1,
+                    "majorThreshold": -1,
+                    "criticalThreshold": 0,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/APISERVICE/aggregator_openapi_v2_regeneration_count",
+                  "type": "metric",
+                  "statistic": "SUM",
+                  "displayName": "pe/APISERVICE/aggregator_openapi_v2_regeneration_count"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Number of Cores (#)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_node_status_capacity_cpu_cores",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 7,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_node_status_capacity_cpu_cores",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/KSM/kube_node_status_capacity_cpu_cores"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Amount of Physical Memory (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_node_status_capacity_memory_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 7,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_node_status_capacity_memory_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/KSM/kube_node_status_capacity_memory_bytes"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Node CPU Requests",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_resource_requests_cpu_cores",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_resource_requests_cpu_cores",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "pe/KSM/kube_pod_container_resource_requests_cpu_cores"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "CPU Requests (cores)",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_resource_requests_cpu_cores",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_pod_container_resource_requests_cpu_cores"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Node CPU Limits",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_resource_limits_cpu_cores",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_resource_limits_cpu_cores",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "pe/KSM/kube_pod_container_resource_limits_cpu_cores"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "CPU limits (cores)",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_resource_limits_cpu_cores",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_pod_container_resource_limits_cpu_cores"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Node Memory Requests (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_resource_requests_memory_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_resource_requests_memory_bytes",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "pe/KSM/kube_pod_container_resource_requests_memory_bytes"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "Memory Requests (bytes)",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_resource_requests_memory_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/KSM/kube_pod_container_resource_requests_memory_bytes"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Node Memory Limits (bytes)",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_pod_container_resource_limits_memory_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_pod_container_resource_limits_memory_bytes",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "pe/KSM/kube_pod_container_resource_limits_memory_bytes"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "Memory Limits (bytes)",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 50,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_pod_container_resource_limits_memory_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "pe/KSM/kube_pod_container_resource_limits_memory_bytes"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          }
+        ]
+      },
+      {
+        "name": "Deployments",
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Deployment Status Condition",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "Available",
+                    "displayValue": "Available"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "DiskPressure",
+                    "displayValue": "DiskPressure"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "false",
+                    "displayValue": "false"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "MemoryPressure",
+                    "displayValue": "MemoryPressure"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "PIDPressure",
+                    "displayValue": "PIDPressure"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "Ready",
+                    "displayValue": "Ready"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "true",
+                    "displayValue": "true"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "pe/KSM/kube_deployment_status_condition",
+                  "dimensions": []
+                },
+                "enabledDimensions": [
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": "unknown",
+                    "displayValue": "unknown"
+                  }
+                ],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "condition",
+                    "displayField": "condition",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "condition": true,
+                  "deployment": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KSM/kube_deployment_status_condition",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KSM/kube_deployment_status_condition"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 1,
+                    "majorThreshold": 1,
+                    "criticalThreshold": 1,
+                    "columnHeader": "Status",
+                    "ledThresholdGreater": false
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KSM/kube_deployment_status_condition",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KSM/kube_deployment_status_condition"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Volumes State",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "pe/KUBELET/volume_manager_total_volumes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "state",
+                    "displayField": "state",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "state": true
+                },
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "MAX",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "pe/KUBELET/volume_manager_total_volumes",
+                    "type": "metric",
+                    "statistic": "MAX",
+                    "displayName": "pe/KUBELET/volume_manager_total_volumes"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "Total Volumes",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 100,
+                "ascending": false,
+                "orderByField": {
+                  "name": "pe/KUBELET/volume_manager_total_volumes",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "pe/KUBELET/volume_manager_total_volumes"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": ""
+            },
+            "timeCompare": false
+          }
+        ]
+      }
+    ]
+  }

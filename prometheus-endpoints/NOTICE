@@ -1,0 +1,5 @@
+Prometheus endpoint scraper for AppInternals Custom Metrics
+Copyright 2020 Aternity, Inc
+
+This product uses code from the Prometheus Client Library which is available under an Apache 2.0
+license. For details, see https://github.com/prometheus/client_python
