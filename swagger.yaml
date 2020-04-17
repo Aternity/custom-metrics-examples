@@ -1,0 +1,746 @@
+---
+    swagger: "2.0"
+    info:
+      description: |
+        This is the REST API (WriteAPI) spec for the CMX Server
+      version: 1.0.0
+      title: CMX Server REST API
+      termsOfService: http://swagger.io/terms/
+      contact:
+        email: apiteam@swagger.io
+      license:
+        name: Apache 2.0
+        url: http://www.apache.org/licenses/LICENSE-2.0.html
+    host: virtserver.swaggerhub.com
+    basePath: /Riverbed-Technology/CustomMetrics/1.0.0
+    tags:
+    - name: custom_metrics
+      description: All the APIs you'll need for CMX
+      externalDocs:
+        description: The master API spec
+        url: https://wiki.rvbdtechlabs.net/display/APMDEV/Plugin+--%3E+CMX_SERVER+API+Notes
+    schemes:
+    - https
+    - http
+    paths:
+      /session:
+        get:
+          tags:
+          - session
+          summary: Get high-level information about all current sessions
+          description: Return high-level information about each session that is currently active with the CMX Server.  The global namespace info will also be returned.
+          operationId: getSessions
+          parameters: []
+          responses:
+            "200":
+              description: OK
+              schema:
+                $ref: '#/definitions/NamespaceSummaries'
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+        post:
+          tags:
+          - session
+          summary: Open a session with the CMX Server.
+          description: This version of open session should be used when a new session is being opened and the CMX Server will be generating the session ID.
+          operationId: openSession
+          parameters:
+          - in: body
+            name: body
+            description: Optional source information
+            required: false
+            schema:
+              $ref: '#/definitions/body'
+          responses:
+            "200":
+              description: OK
+              headers:
+                rvbd-cmx-session-id:
+                  type: string
+                  description: The CMX Server generated session ID
+                rvbd-cmx-definition-hash:
+                  type: string
+                  description: The current dimensions/metric definition hash
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+        delete:
+          tags:
+          - session
+          summary: Close a session with the CMX Server
+          description: Close a session with the CMX Server.  Once this API completes successfully, the caller should consider both the session ID and definition hash invalid.  If persisted, they should be erased.
+          operationId: closeSession
+          parameters:
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session to be closed
+            required: true
+            type: string
+          responses:
+            "200":
+              description: OK
+            "400":
+              description: Session id missing
+            "404":
+              description: Session not found
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+      /session/{sessionId}:
+        get:
+          tags:
+          - session
+          summary: Get detailed information about the requested session
+          description: Return detailed information about the requested session
+          operationId: getSession
+          parameters:
+          - name: sessionId
+            in: path
+            description: The id of the session to be queried
+            required: true
+            type: string
+          responses:
+            "200":
+              description: OK
+              schema:
+                $ref: '#/definitions/NamespaceDetail'
+            "404":
+              description: Session not found
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+        put:
+          tags:
+          - session
+          summary: Open or recover a session with the CMX Server.
+          description: This version of open session should be used when a new session with a user-defined session ID is opened or when re-opening a prior session.
+          operationId: openOrRecoverSession
+          parameters:
+          - name: sessionId
+            in: path
+            description: The id of the session to be opened
+            required: true
+            type: string
+          - name: ifexists
+            in: query
+            description: What action should be taken if an existing session exists?  'error' will result in a 409 status if a prior session exists.  'recover' will cause the prior session to be restored. 'close' will cause the prior session to be closed and a new session to be opened using the same session ID.
+            required: false
+            type: string
+            default: error
+            enum:
+            - error
+            - recover
+            - close
+          - in: body
+            name: body
+            description: Optional source information
+            required: false
+            schema:
+              $ref: '#/definitions/body_1'
+          responses:
+            "200":
+              description: OK
+              headers:
+                rvbd-cmx-session-id:
+                  type: string
+                  description: The CMX Server generated session ID
+                rvbd-cmx-definition-hash:
+                  type: string
+                  description: The current dimensions/metric definition hash
+            "409":
+              description: Session already exists.
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+      /dimensions:
+        get:
+          tags:
+          - dimensions
+          summary: Return all metric dimension set definitions
+          description: Return all metric dimension set definitions
+          operationId: getDimensions
+          produces:
+          - application/json
+          parameters:
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          responses:
+            "200":
+              description: OK
+              schema:
+                $ref: '#/definitions/Dimensions'
+            "404":
+              description: Session not found
+          security:
+          - api_key: []
+        post:
+          tags:
+          - dimensions
+          summary: Create/update metric dimension set definitions from given json data
+          description: Creates or updates all metric dimension set definitions from the given json data
+          operationId: upsertDimensions
+          consumes:
+          - application/json
+          produces:
+          - application/json
+          parameters:
+          - name: updateallowed
+            in: query
+            description: Indicates if existing metric dimension set definitions should be updated
+            required: false
+            type: boolean
+            default: true
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          - in: body
+            name: body
+            description: An array of metric dimension set definition objects
+            required: true
+            schema:
+              $ref: '#/definitions/Dimensions'
+          responses:
+            "200":
+              description: OK
+              headers:
+                rvbd-cmx-definition-hash:
+                  type: string
+                  description: The current dimensions/metric definition hash
+              schema:
+                $ref: '#/definitions/TokenMap'
+            "404":
+              description: Session or dimension set definition not found.  If session not found, an empty object will be returned in the response body.  If updateallowed=false and a  dimension set existed, an array of the existing dimensions ids will be returned
+              schema:
+                $ref: '#/definitions/inline_response_404'
+            "415":
+              description: Unsupported media type
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+        delete:
+          tags:
+          - dimensions
+          summary: Delete requested dimension set definition(s)
+          description: Delete all dimension set definitions as indicated by the array of dimensions definition ids and/or tokens in the given json request body
+          operationId: deleteDimensions
+          parameters:
+          - name: ignorenotfound
+            in: query
+            description: Indicates if dimensions not found should be ignored (true) or be an error (false)
+            required: false
+            type: boolean
+            default: true
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          - in: body
+            name: body
+            description: An array of metric dimension set definition ids and/or tokens.  Values consisting of all 0-9 will first be considered dimensions-ids and, if not found, will be converted to uint32 and treated as tokens.
+            required: true
+            schema:
+              $ref: '#/definitions/body_2'
+          responses:
+            "200":
+              description: OK
+              headers:
+                rvbd-cmx-definition-hash:
+                  type: string
+                  description: The current dimensions/metric definition hash
+            "400":
+              description: Malformed request body
+            "404":
+              description: Session or dimensions definition not found.  If session not found, an empty object will be returned in the response body.  If ignorenotfound=false and dimensions were not found, an array of the not found dimensions ids will be returned
+              schema:
+                $ref: '#/definitions/body_2'
+            "415":
+              description: Unsupported media type
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+      /metric:
+        get:
+          tags:
+          - metric
+          summary: Return all metric definitions
+          description: Return all metric definitions
+          operationId: getMetrics
+          produces:
+          - application/json
+          parameters:
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          responses:
+            "200":
+              description: OK
+              schema:
+                $ref: '#/definitions/Metrics'
+            "404":
+              description: Session not found
+          security:
+          - api_key: []
+        post:
+          tags:
+          - metric
+          summary: Creates/updates metric definitions with given json data
+          description: Creates or updates all metric definitions from the given json data
+          operationId: upsertMetric
+          consumes:
+          - application/json
+          produces:
+          - application/json
+          parameters:
+          - name: updateallowed
+            in: query
+            description: Indicates if existing metric definitions should be updated
+            required: false
+            type: boolean
+            default: true
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          - in: body
+            name: body
+            description: An array of metric definition objects
+            required: true
+            schema:
+              $ref: '#/definitions/Metrics'
+          responses:
+            "200":
+              description: OK
+              headers:
+                rvbd-cmx-definition-hash:
+                  type: string
+                  description: The current context/metric definition hash
+              schema:
+                $ref: '#/definitions/TokenMap'
+            "400":
+              description: Malformed request body
+            "404":
+              description: Session or definition not found.  If session not found, an empty object will be returned in the response body.  If updateallowed=false and metrics existed, an array of the existing metric ids will be returned
+              schema:
+                $ref: '#/definitions/body_2'
+            "415":
+              description: Unsupported media type
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+        delete:
+          tags:
+          - metric
+          summary: Delete metric definition(s)
+          description: Delete all metric definitions as indicated by the array of metric definition ids and/or tokens in the given json request body
+          operationId: deleteMatric
+          parameters:
+          - name: ignorenotfound
+            in: query
+            description: Indicates if metric not found should be ignored (true) or be an error (false)
+            required: false
+            type: boolean
+            default: true
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          - in: body
+            name: body
+            description: An array of metric definition ids and/or tokens.  Values consisting of all 0-9 will first be considered metric-ids and, if not found, will be converted to uint32 and treated as tokens.
+            required: true
+            schema:
+              type: array
+              items:
+                type: string
+          responses:
+            "200":
+              description: OK
+              headers:
+                rvbd-cmx-definition-hash:
+                  type: string
+                  description: The current dimensions/metric definition hash
+            "400":
+              description: Malformed request body
+            "404":
+              description: Session or metric definition not found.  If session not found, an empty object will be returned in the response body.  If ignorenotfound=false and metrics were not found, an array of the not found metric ids will be returned
+              schema:
+                $ref: '#/definitions/body_2'
+            "415":
+              description: Unsupported media type
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+      /samples:
+        post:
+          tags:
+          - samples
+          summary: Upload metric samples in binary format to the CMX Server
+          description: Upload metric samples to the CMX Server from the given binary data
+          operationId: uploadSamplesBinary
+          consumes:
+          - application/octet-stream
+          parameters:
+          - name: createmetrics
+            in: query
+            description: Indicates if metric definitions should be created if they don't exist
+            required: false
+            type: boolean
+            default: true
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          - name: rvbd-cmx-definition-hash
+            in: header
+            description: The current dimensions/metric definition hash
+            required: true
+            type: string
+          - in: body
+            name: body
+            description: An array of binary metric sample objects
+            required: true
+            schema:
+              type: string
+              format: binary
+          responses:
+            "200":
+              description: OK
+            "400":
+              description: Malformed request body
+            "404":
+              description: Session or metric definition not found
+            "409":
+              description: The client definition hash does not match server definition hash
+            "415":
+              description: Unsupported media type
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+        put:
+          tags:
+          - samples
+          summary: Upload metric samples to the CMX Server
+          description: Upload metric samples to the CMX Server from the given json data
+          operationId: uploadSamples
+          consumes:
+          - application/json
+          parameters:
+          - name: createmetrics
+            in: query
+            description: Indicates if metric definitions should be created if they don't exist
+            required: false
+            type: boolean
+            default: false
+          - name: rvbd-cmx-session-id
+            in: header
+            description: The ID of the session
+            required: true
+            type: string
+          - name: rvbd-cmx-definition-hash
+            in: header
+            description: The current dimensions/metric definition hash
+            required: true
+            type: string
+          - in: body
+            name: body
+            description: An array of metric sample objects
+            required: true
+            schema:
+              $ref: '#/definitions/MetricSamples'
+          responses:
+            "200":
+              description: OK
+            "400":
+              description: Malformed request body
+            "404":
+              description: Session or metric definition not found
+            "409":
+              description: The client definition hash does not match server definition hash
+            "415":
+              description: Unsupported media type
+          security:
+          - petstore_auth:
+            - write:pets
+            - read:pets
+    securityDefinitions:
+      petstore_auth:
+        type: oauth2
+        authorizationUrl: http://petstore.swagger.io/oauth/dialog
+        flow: implicit
+        scopes:
+          write:pets: modify pets in your account
+          read:pets: read your pets
+      api_key:
+        type: apiKey
+        name: api_key
+        in: header
+    definitions:
+      NamespaceSummary:
+        type: object
+        properties:
+          session-id:
+            type: string
+          session-hash:
+            type: string
+          source:
+            type: string
+          container-id:
+            type: string
+          number-of-dimensions:
+            type: integer
+          number-of-metric-definitions:
+            type: integer
+          number-of-metrics:
+            type: integer
+          start-time:
+            type: string
+          age:
+            type: string
+          last-updated:
+            type: string
+          active:
+            type: boolean
+          requires-recovery:
+            type: boolean
+        xml:
+          name: NamespaceSummary
+      NamespaceSummaries:
+        type: object
+        properties:
+          version:
+            type: string
+          build:
+            type: string
+          start-time:
+            type: integer
+          up-time:
+            type: integer
+          session-count:
+            type: integer
+          sessions:
+            type: array
+            items:
+              $ref: '#/definitions/NamespaceSummary'
+        xml:
+          name: Dimensions
+      NamespaceDetail:
+        type: object
+        properties:
+          session-id:
+            type: string
+          session-hash:
+            type: string
+          source:
+            type: string
+          container-id:
+            type: string
+          start-time:
+            type: integer
+          up-time:
+            type: integer
+          last-updated:
+            type: string
+          active:
+            type: boolean
+          requires-recovery:
+            type: boolean
+          dimensions:
+            type: array
+            items:
+              $ref: '#/definitions/Dimension'
+          metric-definitions:
+            type: array
+            items:
+              $ref: '#/definitions/Metric'
+          metrics:
+            type: array
+            items:
+              $ref: '#/definitions/MetricSample'
+        xml:
+          name: NamespaceDetail
+      Tag:
+        type: object
+        xml:
+          name: Tag
+        example:
+          product: x
+        additionalProperties:
+          type: string
+      Dimension:
+        type: object
+        properties:
+          dimensions-id:
+            type: string
+          dimension:
+            type: object
+            example:
+              factory: foo
+              worker: james
+            additionalProperties:
+              type: string
+        xml:
+          name: Dimension
+      Dimensions:
+        type: object
+        properties:
+          dimensions:
+            type: array
+            items:
+              $ref: '#/definitions/Dimension'
+        xml:
+          name: Dimensions
+      Metric:
+        type: object
+        properties:
+          metric-id:
+            type: string
+          metric-token:
+            type: integer
+            format: uint32
+          version:
+            type: integer
+            format: int32
+          description:
+            type: string
+          display-name:
+            type: string
+          units:
+            type: string
+        xml:
+          name: Metric
+      Metrics:
+        type: object
+        properties:
+          metric-definitions:
+            type: array
+            items:
+              $ref: '#/definitions/Metric'
+        xml:
+          name: Metrics
+      TokenMap:
+        type: object
+        properties:
+          tokens:
+            type: object
+            example:
+              object-id1: 1
+              object-id2: 2
+              object-id3: 3
+            additionalProperties:
+              type: integer
+              format: uint32
+        xml:
+          name: TokenMap
+      MetricSample:
+        type: object
+        properties:
+          dimensions-token:
+            type: integer
+            format: uint32
+          dimensions-id:
+            type: string
+          dimensions:
+            type: object
+            example:
+              factory: foo
+              worker: james
+            additionalProperties:
+              type: string
+          metric-token:
+            type: integer
+            format: uint32
+          metric-id:
+            type: string
+          tags:
+            type: object
+            example:
+              product: x
+            additionalProperties:
+              type: string
+          source:
+            type: string
+          timestamp:
+            type: array
+            items:
+              type: integer
+              format: int64
+          value:
+            type: array
+            items:
+              type: number
+              format: double
+        xml:
+          name: MetricSample
+      MetricSamples:
+        type: object
+        properties:
+          metric-samples:
+            type: array
+            items:
+              $ref: '#/definitions/MetricSample'
+        xml:
+          name: Metrics
+      ApiResponse:
+        type: object
+        properties:
+          code:
+            type: integer
+            format: int32
+          type:
+            type: string
+          message:
+            type: string
+      body:
+        type: object
+        properties:
+          source:
+            type: string
+          containerId:
+            type: string
+      body_1:
+        type: object
+        properties:
+          source:
+            type: string
+          containerId:
+            type: string
+      inline_response_404:
+        type: object
+        properties:
+          ids:
+            type: array
+            items:
+              type: string
+      body_2:
+        type: object
+        properties:
+          ids:
+            type: array
+            items:
+              type: string
+    externalDocs:
+      description: Find out more about Swagger
+      url: http://swagger.io
+    
