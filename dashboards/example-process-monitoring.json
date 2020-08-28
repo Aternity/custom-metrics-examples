@@ -1,0 +1,488 @@
+{
+  "name": "Process Monitoring",
+  "tabs": [
+    {
+      "name": "System and Processes",
+      "columnCount": 3,
+      "rowHeight": 1,
+      "cards": [
+        {
+          "class": ".StandardCardDef",
+          "type": "SERVER_CPU"
+        },
+        {
+          "class": ".StandardCardDef",
+          "type": "SERVER_MEMORY_DETAILS"
+        },
+        {
+          "class": ".StandardCardDef",
+          "type": "SERVER_DISK"
+        },
+        {
+          "class": ".CustomCardDef",
+          "name": "Top Processes",
+          "seriesList": [
+            {
+              "metric": {
+                "metricId": "process-cpu-percent",
+                "dimensions": []
+              },
+              "enabledDimensions": [],
+              "groupByDimensionOptions": [
+                {
+                  "field": "Process",
+                  "displayField": "Process",
+                  "value": null,
+                  "displayValue": null
+                }
+              ],
+              "groupByDimensions": {
+                "Process": true
+              },
+              "groupByDimensionsVizOrder": [
+                "Process"
+              ],
+              "topN": true,
+              "color": {
+                "fillColor": "#c9dfed",
+                "strokeColor": "#2980b9"
+              },
+              "statistic": "AVG",
+              "leftAxis": true,
+              "additionalTableMetrics": [
+                {
+                  "name": "process-cpu-percent",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "Process CPU Percent"
+                },
+                {
+                  "name": "process-cpu-percent",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "Process CPU Percent"
+                },
+                {
+                  "name": "process-memory-percent",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "Process Memory Percent"
+                },
+                {
+                  "name": "process-memory-percent",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "Process Memory Percent"
+                },
+                {
+                  "name": "process-uptime",
+                  "type": "metric",
+                  "statistic": "MAX",
+                  "displayName": "Process uptime"
+                }
+              ],
+              "tableShowBars": false,
+              "tableColumns": [
+                {
+                  "displayType": "BAR",
+                  "minorThreshold": null,
+                  "majorThreshold": null,
+                  "criticalThreshold": null,
+                  "columnHeader": "CPU % (Avg)",
+                  "ledThresholdGreater": true
+                },
+                {
+                  "displayType": "BAR",
+                  "minorThreshold": null,
+                  "majorThreshold": null,
+                  "criticalThreshold": null,
+                  "columnHeader": "CPU % (Max)",
+                  "ledThresholdGreater": true
+                },
+                {
+                  "displayType": "BAR",
+                  "minorThreshold": null,
+                  "majorThreshold": null,
+                  "criticalThreshold": null,
+                  "columnHeader": "Memory % (Avg)",
+                  "ledThresholdGreater": true
+                },
+                {
+                  "displayType": "BAR",
+                  "minorThreshold": null,
+                  "majorThreshold": null,
+                  "criticalThreshold": null,
+                  "columnHeader": "Memory % (Max)",
+                  "ledThresholdGreater": true
+                },
+                {
+                  "displayType": "NUMBER",
+                  "minorThreshold": null,
+                  "majorThreshold": null,
+                  "criticalThreshold": null,
+                  "columnHeader": "Process Uptime (seconds)",
+                  "ledThresholdGreater": true
+                }
+              ],
+              "tableTimeWindows": [
+                "SELECTED",
+                "SELECTED",
+                "SELECTED",
+                "SELECTED",
+                "SELECTED"
+              ],
+              "knowAllDimensions": false,
+              "topNLimit": 30,
+              "ascending": false,
+              "orderByField": {
+                "name": "process-cpu-percent",
+                "type": "metric",
+                "statistic": "AVG",
+                "displayName": "Process CPU Percent"
+              }
+            }
+          ],
+          "visType": "TABLE",
+          "cardSize": "JUMBO",
+          "heightMultiplier": 1,
+          "hole": false,
+          "datasource": {
+            "type": "APM",
+            "name": "process-collector"
+          },
+          "timeCompare": false,
+          "cardFilterOptions": [
+            {
+              "field": "server.os",
+              "displayField": "server.os",
+              "filterValueOptions": [],
+              "restrictOptions": false,
+              "singleSelect": false
+            }
+          ],
+          "allowEndUserOrderByControl": true,
+          "endUserOrderByRestrictOptions": true,
+          "endUserOrderByOptions": [
+            {
+              "displayName": "process-cpu-percent",
+              "name": "process-cpu-percent",
+              "units": "",
+              "stat": "AVG"
+            },
+            {
+              "displayName": "process-memory-percent",
+              "name": "process-memory-percent",
+              "units": "",
+              "stat": "AVG"
+            },
+            {
+              "displayName": "process-uptime",
+              "name": "process-uptime",
+              "units": "",
+              "stat": "AVG"
+            }
+          ],
+          "customDrilldowns": [],
+          "gridMaxRows": 20,
+          "gridMaxCols": 20,
+          "gridInitialOrderByField": null,
+          "gridInitialOrderByAscending": false
+        },
+        {
+          "class": ".CustomCardDef",
+          "name": "Process CPU Percent",
+          "seriesList": [
+            {
+              "metric": {
+                "metricId": "process-cpu-percent",
+                "dimensions": []
+              },
+              "enabledDimensions": [],
+              "groupByDimensionOptions": [
+                {
+                  "field": "Command Line",
+                  "displayField": "Command Line",
+                  "value": null,
+                  "displayValue": null
+                }
+              ],
+              "groupByDimensions": {
+                "Command Line": true
+              },
+              "groupByDimensionsVizOrder": [
+                "Command Line"
+              ],
+              "topN": true,
+              "color": {
+                "fillColor": "#c9dfed",
+                "strokeColor": "#2980b9"
+              },
+              "statistic": "AVG",
+              "leftAxis": true,
+              "additionalTableMetrics": [],
+              "tableShowBars": false,
+              "tableColumns": [],
+              "tableTimeWindows": [],
+              "knowAllDimensions": false,
+              "topNLimit": 10,
+              "ascending": false,
+              "orderByField": {
+                "name": "process-cpu-percent",
+                "type": "metric",
+                "statistic": "AVG",
+                "displayName": "Process CPU Percent"
+              }
+            }
+          ],
+          "visType": "LINE",
+          "cardSize": "JUMBO",
+          "heightMultiplier": 1,
+          "hole": false,
+          "datasource": {
+            "type": "APM",
+            "name": "process-collector"
+          },
+          "timeCompare": false,
+          "cardFilterOptions": [
+            {
+              "field": "Process",
+              "displayField": "Process",
+              "filterValueOptions": [],
+              "restrictOptions": false,
+              "singleSelect": false
+            },
+            {
+              "field": "server.os",
+              "displayField": "server.os",
+              "filterValueOptions": [],
+              "restrictOptions": false,
+              "singleSelect": false
+            }
+          ],
+          "allowEndUserOrderByControl": false,
+          "endUserOrderByRestrictOptions": false,
+          "endUserOrderByOptions": [],
+          "customDrilldowns": [],
+          "gridMaxRows": 20,
+          "gridMaxCols": 20,
+          "gridInitialOrderByField": null,
+          "gridInitialOrderByAscending": false
+        },
+        {
+          "class": ".CustomCardDef",
+          "name": "Process Memory Percent",
+          "seriesList": [
+            {
+              "metric": {
+                "metricId": "process-memory-percent",
+                "dimensions": []
+              },
+              "enabledDimensions": [],
+              "groupByDimensionOptions": [
+                {
+                  "field": "Command Line",
+                  "displayField": "Command Line",
+                  "value": null,
+                  "displayValue": null
+                }
+              ],
+              "groupByDimensions": {
+                "Command Line": true
+              },
+              "groupByDimensionsVizOrder": [
+                "Command Line"
+              ],
+              "topN": true,
+              "color": {
+                "fillColor": "#c9dfed",
+                "strokeColor": "#2980b9"
+              },
+              "statistic": "AVG",
+              "leftAxis": true,
+              "additionalTableMetrics": [],
+              "tableShowBars": false,
+              "tableColumns": [],
+              "tableTimeWindows": [],
+              "knowAllDimensions": false,
+              "topNLimit": 10,
+              "ascending": false,
+              "orderByField": {
+                "name": "process-memory-percent",
+                "type": "metric",
+                "statistic": "AVG",
+                "displayName": "Process Memory Percent"
+              }
+            }
+          ],
+          "visType": "LINE",
+          "cardSize": "JUMBO",
+          "heightMultiplier": 1,
+          "hole": false,
+          "datasource": {
+            "type": "APM",
+            "name": "process-collector"
+          },
+          "timeCompare": false,
+          "cardFilterOptions": [
+            {
+              "field": "Process",
+              "displayField": "Process",
+              "filterValueOptions": [],
+              "restrictOptions": false,
+              "singleSelect": false
+            },
+            {
+              "field": "server.os",
+              "displayField": "server.os",
+              "filterValueOptions": [],
+              "restrictOptions": false,
+              "singleSelect": false
+            }
+          ],
+          "allowEndUserOrderByControl": false,
+          "endUserOrderByRestrictOptions": false,
+          "endUserOrderByOptions": [],
+          "customDrilldowns": [],
+          "gridMaxRows": 20,
+          "gridMaxCols": 20,
+          "gridInitialOrderByField": null,
+          "gridInitialOrderByAscending": false
+        }
+      ],
+      "tabFilterOptions": [
+        {
+          "field": "server",
+          "displayField": "server",
+          "filterValueOptions": [],
+          "restrictOptions": false,
+          "singleSelect": false
+        }
+      ],
+      "insightsIframeUrl": null,
+      "insightsIframeHeight": null
+    },
+    {
+      "name": "Services",
+      "columnCount": 3,
+      "rowHeight": 1,
+      "cards": [
+        {
+          "class": ".CustomCardDef",
+          "name": "Service state",
+          "seriesList": [
+            {
+              "metric": {
+                "metricId": "service-state",
+                "dimensions": []
+              },
+              "enabledDimensions": [],
+              "groupByDimensionOptions": [
+                {
+                  "field": "Service",
+                  "displayField": "Service",
+                  "value": null,
+                  "displayValue": null
+                }
+              ],
+              "groupByDimensions": {
+                "Service": true
+              },
+              "groupByDimensionsVizOrder": [
+                "Service"
+              ],
+              "topN": true,
+              "color": {
+                "fillColor": "#c9dfed",
+                "strokeColor": "#2980b9"
+              },
+              "statistic": "AVG",
+              "leftAxis": true,
+              "additionalTableMetrics": [
+                {
+                  "name": "service-state",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "Service state"
+                }
+              ],
+              "tableShowBars": false,
+              "tableColumns": [
+                {
+                  "displayType": "LED",
+                  "minorThreshold": 5,
+                  "majorThreshold": 3,
+                  "criticalThreshold": 1,
+                  "columnHeader": "",
+                  "ledThresholdGreater": false
+                }
+              ],
+              "tableTimeWindows": [
+                "SELECTED"
+              ],
+              "knowAllDimensions": false,
+              "topNLimit": 30,
+              "ascending": false,
+              "orderByField": {
+                "name": "service-state",
+                "type": "metric",
+                "statistic": "AVG",
+                "displayName": "Service state"
+              }
+            }
+          ],
+          "visType": "TABLE",
+          "cardSize": "JUMBO",
+          "heightMultiplier": 1,
+          "hole": false,
+          "datasource": {
+            "type": "APM",
+            "name": "process-collector"
+          },
+          "timeCompare": false,
+          "cardFilterOptions": [
+            {
+              "field": "Service",
+              "displayField": "Service",
+              "filterValueOptions": [],
+              "restrictOptions": false,
+              "singleSelect": false
+            }
+          ],
+          "allowEndUserOrderByControl": true,
+          "endUserOrderByRestrictOptions": true,
+          "endUserOrderByOptions": [
+            {
+              "displayName": "service-state",
+              "name": "service-state",
+              "units": "",
+              "stat": "AVG"
+            }
+          ],
+          "customDrilldowns": null,
+          "gridMaxRows": 20,
+          "gridMaxCols": 20,
+          "gridInitialOrderByField": null,
+          "gridInitialOrderByAscending": false
+        }
+      ],
+      "tabFilterOptions": [
+        {
+          "field": "server.os",
+          "displayField": "server.os",
+          "filterValueOptions": [],
+          "restrictOptions": false,
+          "singleSelect": false
+        },
+        {
+          "field": "server",
+          "displayField": "server",
+          "filterValueOptions": [],
+          "restrictOptions": false,
+          "singleSelect": false
+        }
+      ],
+      "insightsIframeUrl": null,
+      "insightsIframeHeight": null
+    }
+  ]
+}
