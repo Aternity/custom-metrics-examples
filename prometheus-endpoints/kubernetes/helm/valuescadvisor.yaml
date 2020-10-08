@@ -1,7 +1,7 @@
 # Default values for pesync.
 image:
     #image.repository -- Repository that contains the PESync image.
-    repository: docker.io/aternity/pe-sync-service
+    repository: docker.io/atny/pesync:11.5.0
     #image.pullSecrets -- Specify docker-registry secret names as an array
     pullSecrets: [regcred]
     # image.tag -- pesync image version.
