@@ -7,7 +7,7 @@ WORKDIR /gobuild
 COPY . .
 
 # Run golang build.
-RUN GOPRIVATE='bitbucket.org/*,*.bitbucket.org/*' go build -o remote-storage-adapter main.go
+RUN go build -o remote-storage-adapter main.go
 
 FROM gcr.io/distroless/base
 

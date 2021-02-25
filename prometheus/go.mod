@@ -1,4 +1,4 @@
-module bitbucket.org/atny/prometheus-cmx
+module github.com/Aternity/custom-metrics-examples/prometheus
 
 go 1.14
 
