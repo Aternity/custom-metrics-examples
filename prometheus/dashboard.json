@@ -1,0 +1,2064 @@
+{
+    "name": "K8s dashboard",
+    "tabs": [
+      {
+        "id": 13,
+        "adhocTab": false,
+        "name": "Container",
+        "description": null,
+        "columnCount": 3,
+        "rowHeight": 1,
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "CPU Throttled Seconds",
+            "description": "cAdvisor(container_cpu_cfs_throttled_seconds_total)\nSee are we putting resource limit too tight for a container",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "container_cpu_cfs_throttled_seconds_total",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "container"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "container_cpu_cfs_throttled_seconds_total",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "container_cpu_cfs_throttled_seconds_total"
+                }
+              }
+            ],
+            "visType": "STACK",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              },
+              {
+                "field": "pod",
+                "displayField": "pod",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "CPU Load(Need cAdvisor config)",
+            "description": "If all containers returning 0, the chance is the cAdvisor on your node is running with default --enable_load_reader=false\nDetails: https://github.com/google/cadvisor/blob/master/docs/runtime_options.md",
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "container_cpu_load_average_10s",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "container"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "container_cpu_load_average_10s",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "container_cpu_load_average_10s"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "# Processes",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "container_processes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "container"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "container_processes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "container_processes"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "# Container Memory Limit Hit",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "container_memory_failcnt",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "container"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "container_memory_failcnt",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "container_memory_failcnt"
+                }
+              }
+            ],
+            "visType": "SPARK",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Memory Usage",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "container_memory_usage_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "container",
+                    "displayField": "container",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "container": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "container"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "container_memory_usage_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "container_memory_usage_bytes"
+                }
+              }
+            ],
+            "visType": "BARS",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          }
+        ],
+        "tabFilterOptions": [
+          {
+            "field": "env",
+            "displayField": "env",
+            "filterValueOptions": [],
+            "restrictOptions": false,
+            "singleSelect": false,
+            "noSelectAll": false,
+            "hidden": false,
+            "noEdit": false,
+            "ephemeral": false,
+            "defaultSelectionFromTabFilters": false
+          }
+        ],
+        "insightsIframeUrl": null,
+        "insightsIframeHeight": null,
+        "tabGroupingOptions": [],
+        "timeGraphMetric": null,
+        "modified": true,
+        "tabEditingDisabled": false,
+        "adminOnly": false
+      },
+      {
+        "id": 9,
+        "adhocTab": false,
+        "name": "PODS",
+        "description": null,
+        "columnCount": 3,
+        "rowHeight": 1,
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Deployments",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_deployment_spec_replicas",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "deployment",
+                    "displayField": "deployment",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "deployment": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "deployment"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_deployment_spec_replicas",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_deployment_spec_replicas"
+                  },
+                  {
+                    "name": "kube_deployment_status_replicas_available",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_deployment_status_replicas_available"
+                  },
+                  {
+                    "name": "kube_deployment_status_replicas_unavailable",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_deployment_status_replicas_unavailable"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  },
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  },
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 0.5,
+                    "majorThreshold": 0.7,
+                    "criticalThreshold": 0.85,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED",
+                  "SELECTED",
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kube_deployment_spec_replicas",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kube_deployment_spec_replicas"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pods Restarted/Terminated",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_pod_container_status_restarts_total",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "pod",
+                    "displayField": "pod",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "pod": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "pod"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_pod_container_status_restarts_total",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_pod_container_status_restarts_total"
+                  },
+                  {
+                    "name": "kube_pod_container_status_terminated_reason",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_pod_container_status_terminated_reason"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 2,
+                    "majorThreshold": 4,
+                    "criticalThreshold": 8,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  },
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 2,
+                    "majorThreshold": 4,
+                    "criticalThreshold": 8,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED",
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kube_pod_container_status_restarts_total",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kube_pod_container_status_restarts_total"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod Info",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_pod_info",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "namespace",
+                    "displayField": "namespace",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "pod_ip",
+                    "displayField": "pod_ip",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "created_by_kind",
+                    "displayField": "created_by_kind",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "priority_class",
+                    "displayField": "priority_class",
+                    "value": null,
+                    "displayValue": null
+                  },
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true,
+                  "priority_class": true,
+                  "namespace": true,
+                  "pod_ip": true,
+                  "created_by_kind": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "created_by_kind",
+                  "namespace",
+                  "node",
+                  "priority_class",
+                  "pod_ip"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_pod_info",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_pod_info"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kube_pod_info",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kube_pod_info"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "DaemonSets",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_daemonset_status_desired_number_scheduled",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "daemonset",
+                    "displayField": "daemonset",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "daemonset": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "daemonset"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_daemonset_status_desired_number_scheduled",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_daemonset_status_desired_number_scheduled"
+                  },
+                  {
+                    "name": "kube_daemonset_status_number_available",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_daemonset_status_number_available"
+                  },
+                  {
+                    "name": "kube_daemonset_status_number_unavailable",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_daemonset_status_number_unavailable"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  },
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  },
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 0.5,
+                    "majorThreshold": 0.7,
+                    "criticalThreshold": 0.85,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED",
+                  "SELECTED",
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 9,
+                "ascending": false,
+                "orderByField": {
+                  "name": "apiserver_audit_event_total",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "apiserver_audit_event_total"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pods in Waiting by Reason",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_pod_container_status_waiting_reason",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "reason",
+                    "displayField": "reason",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "reason": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "reason"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_pod_container_status_waiting_reason",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_pod_container_status_waiting_reason"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 0.5,
+                    "majorThreshold": 0.7,
+                    "criticalThreshold": 0.85,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 9,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kube_pod_container_status_waiting_reason",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kube_pod_container_status_waiting_reason"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Pod lost by Reason",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_pod_status_reason",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "reason",
+                    "displayField": "reason",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "reason": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "reason"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_pod_status_reason",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_pod_status_reason"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 0.5,
+                    "majorThreshold": 0.7,
+                    "criticalThreshold": 0.85,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 9,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kube_pod_status_reason",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kube_pod_status_reason"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          }
+        ],
+        "tabFilterOptions": [
+          {
+            "field": "env",
+            "displayField": "env",
+            "filterValueOptions": [],
+            "restrictOptions": false,
+            "singleSelect": false,
+            "noSelectAll": false,
+            "hidden": false,
+            "noEdit": false,
+            "ephemeral": false,
+            "defaultSelectionFromTabFilters": false
+          }
+        ],
+        "insightsIframeUrl": null,
+        "insightsIframeHeight": null,
+        "tabGroupingOptions": [],
+        "timeGraphMetric": null,
+        "modified": true,
+        "tabEditingDisabled": false,
+        "adminOnly": false
+      },
+      {
+        "id": 11,
+        "adhocTab": false,
+        "name": "NODES",
+        "description": null,
+        "columnCount": 3,
+        "rowHeight": 1,
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Unschedulable Nodes",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kube_node_spec_unschedulable",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "node",
+                    "displayField": "node",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "node": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "node"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "kube_node_spec_unschedulable",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "kube_node_spec_unschedulable"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "LED",
+                    "minorThreshold": 0.5,
+                    "majorThreshold": 0.7,
+                    "criticalThreshold": 0.85,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kube_node_spec_unschedulable",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kube_node_spec_unschedulable"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Node CPU/RAM Spec",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "machine_cpu_cores",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "instance",
+                    "displayField": "instance",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "instance": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "instance"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [
+                  {
+                    "name": "machine_cpu_cores",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "machine_cpu_cores"
+                  },
+                  {
+                    "name": "machine_memory_bytes",
+                    "type": "metric",
+                    "statistic": "AVG",
+                    "displayName": "machine_memory_bytes"
+                  }
+                ],
+                "tableShowBars": false,
+                "tableColumns": [
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  },
+                  {
+                    "displayType": "NUMBER",
+                    "minorThreshold": null,
+                    "majorThreshold": null,
+                    "criticalThreshold": null,
+                    "columnHeader": "",
+                    "ledThresholdGreater": true
+                  }
+                ],
+                "tableTimeWindows": [
+                  "SELECTED",
+                  "SELECTED"
+                ],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "machine_cpu_cores",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "machine_cpu_cores"
+                }
+              }
+            ],
+            "visType": "TABLE",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Container Log Filesystem Usage by Node",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "kubelet_container_log_filesystem_used_bytes",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "instance",
+                    "displayField": "instance",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "instance": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "instance"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 99,
+                "ascending": false,
+                "orderByField": {
+                  "name": "kubelet_container_log_filesystem_used_bytes",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "kubelet_container_log_filesystem_used_bytes"
+                }
+              }
+            ],
+            "visType": "SUMMARY",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          }
+        ],
+        "tabFilterOptions": [
+          {
+            "field": "env",
+            "displayField": "env",
+            "filterValueOptions": [],
+            "restrictOptions": false,
+            "singleSelect": false,
+            "noSelectAll": false,
+            "hidden": false,
+            "noEdit": false,
+            "ephemeral": false,
+            "defaultSelectionFromTabFilters": false
+          }
+        ],
+        "insightsIframeUrl": null,
+        "insightsIframeHeight": null,
+        "tabGroupingOptions": [],
+        "timeGraphMetric": null,
+        "modified": true,
+        "tabEditingDisabled": false,
+        "adminOnly": false
+      },
+      {
+        "id": 12,
+        "adhocTab": false,
+        "name": "Cluster",
+        "description": null,
+        "columnCount": 3,
+        "rowHeight": 1,
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Cluster Autoscaler",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "cluster_autoscaler_unschedulable_pods_count",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "groupByDimensionsVizOrder": [],
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "cluster_autoscaler_unschedulable_pods_count",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "cluster_autoscaler_unschedulable_pods_count"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "cluster_autoscaler_unneeded_nodes_count",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "groupByDimensionsVizOrder": [],
+                "topN": false,
+                "color": {
+                  "fillColor": "#fce6c4",
+                  "strokeColor": "#f39c12"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "cluster_autoscaler_unschedulable_pods_count",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "cluster_autoscaler_unschedulable_pods_count"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "cluster_autoscaler_scaled_down_nodes_total",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "groupByDimensionsVizOrder": [],
+                "topN": false,
+                "color": {
+                  "fillColor": "#e3d0ea",
+                  "strokeColor": "#8e44ad"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "cluster_autoscaler_unschedulable_pods_count",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "cluster_autoscaler_unschedulable_pods_count"
+                }
+              },
+              {
+                "metric": {
+                  "metricId": "cluster_autoscaler_scaled_up_nodes_total",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "groupByDimensionsVizOrder": [],
+                "topN": false,
+                "color": {
+                  "fillColor": "#c4e7e0",
+                  "strokeColor": "#27ae60"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "cluster_autoscaler_unschedulable_pods_count",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "cluster_autoscaler_unschedulable_pods_count"
+                }
+              }
+            ],
+            "visType": "STACK",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          }
+        ],
+        "tabFilterOptions": [
+          {
+            "field": "env",
+            "displayField": "env",
+            "filterValueOptions": [],
+            "restrictOptions": false,
+            "singleSelect": false,
+            "noSelectAll": false,
+            "hidden": false,
+            "noEdit": false,
+            "ephemeral": false,
+            "defaultSelectionFromTabFilters": false
+          }
+        ],
+        "insightsIframeUrl": null,
+        "insightsIframeHeight": null,
+        "tabGroupingOptions": [],
+        "timeGraphMetric": null,
+        "modified": true,
+        "tabEditingDisabled": false,
+        "adminOnly": false
+      },
+      {
+        "id": 10,
+        "adhocTab": false,
+        "name": "PROMETHEUS",
+        "description": null,
+        "columnCount": 3,
+        "rowHeight": 1,
+        "cards": [
+          {
+            "class": ".CustomCardDef",
+            "name": "Samples Scraped by Job (Avg)",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "scrape_samples_scraped",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [
+                  {
+                    "field": "job",
+                    "displayField": "job",
+                    "value": null,
+                    "displayValue": null
+                  }
+                ],
+                "groupByDimensions": {
+                  "job": true
+                },
+                "groupByDimensionsVizOrder": [
+                  "job"
+                ],
+                "topN": true,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 6,
+                "ascending": false,
+                "orderByField": {
+                  "name": "scrape_samples_scraped",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "scrape_samples_scraped"
+                }
+              }
+            ],
+            "visType": "STACK",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          },
+          {
+            "class": ".CustomCardDef",
+            "name": "Remote Storage Sent bytes",
+            "description": null,
+            "seriesList": [
+              {
+                "metric": {
+                  "metricId": "prometheus_remote_storage_sent_bytes_total",
+                  "dimensions": []
+                },
+                "enabledDimensions": [],
+                "groupByDimensionOptions": [],
+                "groupByDimensions": {},
+                "groupByDimensionsVizOrder": [],
+                "topN": false,
+                "color": {
+                  "fillColor": "#c9dfed",
+                  "strokeColor": "#2980b9"
+                },
+                "statistic": "AVG",
+                "leftAxis": true,
+                "additionalTableMetrics": [],
+                "tableShowBars": false,
+                "tableColumns": [],
+                "tableTimeWindows": [],
+                "knowAllDimensions": false,
+                "topNLimit": 5,
+                "ascending": false,
+                "orderByField": {
+                  "name": "prometheus_remote_storage_sent_bytes_total",
+                  "type": "metric",
+                  "statistic": "AVG",
+                  "displayName": "prometheus_remote_storage_sent_bytes_total"
+                }
+              }
+            ],
+            "visType": "SUMMARY",
+            "cardSize": "NORMAL",
+            "heightMultiplier": 0.4,
+            "hole": false,
+            "datasource": {
+              "type": "APM",
+              "name": "prometheus",
+              "isCassandraTable": false,
+              "monitor": null
+            },
+            "timeCompare": false,
+            "cardFilterOptions": [
+              {
+                "field": "env",
+                "displayField": "env",
+                "filterValueOptions": [],
+                "restrictOptions": false,
+                "singleSelect": false,
+                "noSelectAll": false,
+                "hidden": false,
+                "noEdit": false,
+                "ephemeral": false,
+                "defaultSelectionFromTabFilters": false
+              }
+            ],
+            "allowEndUserOrderByControl": false,
+            "endUserOrderByRestrictOptions": false,
+            "endUserOrderByOptions": [],
+            "customDrilldowns": [],
+            "gridMaxRows": 20,
+            "gridMaxCols": 20,
+            "gridInitialOrderByField": null,
+            "gridInitialOrderByAscending": false,
+            "tabFilterFieldsIgnored": [],
+            "disableRowSelection": false,
+            "showCardLevelTimeControl": false,
+            "cardLevelTimeControlLabel": "",
+            "receiveCardLevelTimeChanges": false,
+            "cardTimeSelectorGraphDatasource": null,
+            "cardTimeSelectorGraphMeasurement": null,
+            "disableTableSorting": false,
+            "nowTimeWindowMinsNOC": 15,
+            "labelColWidth": null,
+            "enableAutomaticDrilldowns": false
+          }
+        ],
+        "tabFilterOptions": [
+          {
+            "field": "env",
+            "displayField": "env",
+            "filterValueOptions": [],
+            "restrictOptions": false,
+            "singleSelect": false,
+            "noSelectAll": false,
+            "hidden": false,
+            "noEdit": false,
+            "ephemeral": false,
+            "defaultSelectionFromTabFilters": false
+          }
+        ],
+        "insightsIframeUrl": null,
+        "insightsIframeHeight": null,
+        "tabGroupingOptions": [],
+        "timeGraphMetric": null,
+        "modified": true,
+        "tabEditingDisabled": false,
+        "adminOnly": false
+      }
+    ],
+    "jsonEditingDisabled": false,
+    "tabsEndUserControlsEditingDisabled": false,
+    "dashboardVisibilityControlsDisabled": false,
+    "eueOnly": false,
+    "hideInMenu": false,
+    "dashboardEditingDisabled": false,
+    "dashboardDeletingDisabled": false
+  }
