@@ -8,7 +8,7 @@ protocol and stores them in Aternity APM. It is meant as a
 replacement for the built-in specific remote storage implementations that have
 been removed from Prometheus.
 
-## Prereqsuisite
+## Prerequisite
 1. You have an existing Prometheus instance
 2. You have your own container image repository
 3. You have an Aternity APM Agent(11.4.3+) running and connected to your Aternity APM Analysis Server
