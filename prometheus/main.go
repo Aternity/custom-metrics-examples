@@ -19,7 +19,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	_ "net/http/pprof"
-	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -30,7 +29,6 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/snappy"
-	influx "github.com/influxdata/influxdb/client/v2"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -40,33 +38,20 @@ import (
 	"gopkg.in/alecthomas/kingpin.v2"
 
 	"github.com/Aternity/custom-metrics-examples/prometheus/cmx"
-	"github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/graphite"
-	"github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/influxdb"
-	"github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/opentsdb"
-
 	"github.com/prometheus/prometheus/prompb"
 )
 
 type config struct {
-	awsEnv                  string
-	awsRegion               string
-	aternityURL             string
-	aternityCmxDimensions   string
-	graphiteAddress         string
-	graphiteTransport       string
-	graphitePrefix          string
-	opentsdbURL             string
-	cmxURL                  string
-	cmxDimensions           string
-	influxdbURL             string
-	influxdbRetentionPolicy string
-	influxdbUsername        string
-	influxdbDatabase        string
-	influxdbPassword        string
-	remoteTimeout           time.Duration
-	listenAddr              string
-	telemetryPath           string
-	promlogConfig           promlog.Config
+	Env                   string
+	Region                string
+	aternityURL           string
+	aternityCmxDimensions string
+	cmxURL                string
+	cmxDimensions         string
+	remoteTimeout         time.Duration
+	listenAddr            string
+	telemetryPath         string
+	promlogConfig         promlog.Config
 }
 
 var (
@@ -125,32 +110,15 @@ func parseFlags() *config {
 	a.HelpFlag.Short('h')
 
 	cfg := &config{
-		awsRegion:        os.Getenv("REGION"),
-		awsEnv:           os.Getenv("ENV"),
-		influxdbPassword: os.Getenv("INFLUXDB_PW"),
-		promlogConfig:    promlog.Config{},
+		Region:        os.Getenv("REGION"),
+		Env:           os.Getenv("ENV"),
+		promlogConfig: promlog.Config{},
 	}
 
 	a.Flag("atny-url", "The URL of the remote Aternity APM CMX endpoint to send samples to. None, if empty.").
 		Default("").StringVar(&cfg.aternityURL)
 	a.Flag("atny-cmx-dimensions", "A csv list of dimensions and values. None, if empty.").
 		Default("").StringVar(&cfg.aternityCmxDimensions)
-	a.Flag("graphite-address", "The host:port of the Graphite server to send samples to. None, if empty.").
-		Default("").StringVar(&cfg.graphiteAddress)
-	a.Flag("graphite-transport", "Transport protocol to use to communicate with Graphite. 'tcp', if empty.").
-		Default("tcp").StringVar(&cfg.graphiteTransport)
-	a.Flag("graphite-prefix", "The prefix to prepend to all metrics exported to Graphite. None, if empty.").
-		Default("").StringVar(&cfg.graphitePrefix)
-	a.Flag("opentsdb-url", "The URL of the remote OpenTSDB server to send samples to. None, if empty.").
-		Default("").StringVar(&cfg.opentsdbURL)
-	a.Flag("influxdb-url", "The URL of the remote InfluxDB server to send samples to. None, if empty.").
-		Default("").StringVar(&cfg.influxdbURL)
-	a.Flag("influxdb.retention-policy", "The InfluxDB retention policy to use.").
-		Default("autogen").StringVar(&cfg.influxdbRetentionPolicy)
-	a.Flag("influxdb.username", "The username to use when sending samples to InfluxDB. The corresponding password must be provided via the INFLUXDB_PW environment variable.").
-		Default("").StringVar(&cfg.influxdbUsername)
-	a.Flag("influxdb.database", "The name of the database to use for storing samples in InfluxDB.").
-		Default("prometheus").StringVar(&cfg.influxdbDatabase)
 	a.Flag("send-timeout", "The timeout to use when sending samples to the remote storage.").
 		Default("30s").DurationVar(&cfg.remoteTimeout)
 	a.Flag("web.listen-address", "Address to listen on for web endpoints.").
@@ -183,21 +151,6 @@ type reader interface {
 func buildClients(logger log.Logger, cfg *config) ([]writer, []reader) {
 	var writers []writer
 	var readers []reader
-	if cfg.graphiteAddress != "" {
-		c := graphite.NewClient(
-			log.With(logger, "storage", "Graphite"),
-			cfg.graphiteAddress, cfg.graphiteTransport,
-			cfg.remoteTimeout, cfg.graphitePrefix)
-		writers = append(writers, c)
-	}
-	if cfg.opentsdbURL != "" {
-		c := opentsdb.NewClient(
-			log.With(logger, "storage", "OpenTSDB"),
-			cfg.opentsdbURL,
-			cfg.remoteTimeout,
-		)
-		writers = append(writers, c)
-	}
 	if cfg.aternityURL != "" {
 		dimensions := map[string]cmx.TagValue{}
 		if cfg.aternityCmxDimensions != "" {
@@ -215,11 +168,11 @@ func buildClients(logger log.Logger, cfg *config) ([]writer, []reader) {
 				}
 			}
 		}
-		if cfg.awsRegion != "" {
-			dimensions["region"] = cmx.TagValue(cfg.awsRegion)
+		if cfg.Region != "" {
+			dimensions["region"] = cmx.TagValue(cfg.Region)
 		}
-		if cfg.awsEnv != "" {
-			dimensions["env"] = cmx.TagValue(cfg.awsEnv)
+		if cfg.Env != "" {
+			dimensions["env"] = cmx.TagValue(cfg.Env)
 		}
 		c := cmx.NewClient(
 			log.With(logger, "storage", "cmx"),
@@ -229,28 +182,6 @@ func buildClients(logger log.Logger, cfg *config) ([]writer, []reader) {
 		)
 		level.Info(logger).Log("msg", "Aternity APM Custom Metrics endpoint: "+cfg.aternityURL)
 		writers = append(writers, c)
-	}
-	if cfg.influxdbURL != "" {
-		url, err := url.Parse(cfg.influxdbURL)
-		if err != nil {
-			level.Error(logger).Log("msg", "Failed to parse InfluxDB URL", "url", cfg.influxdbURL, "err", err)
-			os.Exit(1)
-		}
-		conf := influx.HTTPConfig{
-			Addr:     url.String(),
-			Username: cfg.influxdbUsername,
-			Password: cfg.influxdbPassword,
-			Timeout:  cfg.remoteTimeout,
-		}
-		c := influxdb.NewClient(
-			log.With(logger, "storage", "InfluxDB"),
-			conf,
-			cfg.influxdbDatabase,
-			cfg.influxdbRetentionPolicy,
-		)
-		prometheus.MustRegister(c)
-		writers = append(writers, c)
-		readers = append(readers, c)
 	}
 	level.Info(logger).Log("msg", "Starting up...")
 	return writers, readers

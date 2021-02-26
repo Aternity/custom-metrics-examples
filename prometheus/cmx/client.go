@@ -128,7 +128,6 @@ func (c *Client) putMetricDef(mdreq StoreMetricDefinitionsRequest, u *url.URL) e
 	}()
 
 	// API returns status code 200 for successful writes.
-	// http://opentsdb.net/docs/build/html/api_http/put.html
 	if resp.StatusCode == http.StatusOK {
 		level.Info(c.logger).Log("msg", "success pushing new metric definitions")
 	} else {
@@ -243,7 +242,6 @@ func (c *Client) Write(samples model.Samples) error {
 		}
 
 		// API returns status code 200 for successful writes.
-		// http://opentsdb.net/docs/build/html/api_http/put.html
 		if resp2.StatusCode == http.StatusOK {
 			level.Info(c.logger).Log("msg", "success pushing new metric samples")
 			return nil

@@ -4,12 +4,9 @@ https://github.com/prometheus/prometheus/tree/master/documentation/examples/remo
 # Remote storage adapter
 
 This is a write adapter that receives samples via Prometheus's remote write
-protocol and stores them in Graphite, InfluxDB, or OpenTSDB. It is meant as a
+protocol and stores them in Aternity APM. It is meant as a
 replacement for the built-in specific remote storage implementations that have
 been removed from Prometheus.
-
-For InfluxDB, this binary is also a read adapter that supports reading back
-data through Prometheus via Prometheus's remote read protocol.
 
 ## Prereqsuisite
 1. You have an existing Prometheus instance
