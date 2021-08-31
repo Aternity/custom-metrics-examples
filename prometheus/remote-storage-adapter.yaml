@@ -1,0 +1,66 @@
+---
+# Source: prometheus/templates/server/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: "remote-storage-adapter"
+    app: prometheus
+  name: prometheus-remote-storage-adapter
+  namespace: monitoring
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 9201
+  selector:
+    component: "remote-storage-adapter"
+    app: prometheus
+  type: "ClusterIP"
+---
+# Source: prometheus/templates/server/deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    component: "remote-storage-adapter"
+    app: prometheus
+  name: remote-storage-adapter
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      component: "remote-storage-adapter"
+      app: prometheus
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: "remote-storage-adapter"
+        app: prometheus
+    spec:
+      containers:
+        - name: atny-remote-storage-adapter
+          image: "YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0"
+          args:
+            - --atny-url=https://ATERNITY_APM_AGENT_HOST:7074/
+            # - --atny-cmx-dimensions='extraDim0,Dim0Val,extraDim1,Dim1Val'
+          imagePullPolicy: "Always"
+          resources:
+            requests:
+                cpu: "125m"
+                memory: "256Mi"
+            limits:
+                cpu: "512m"
+                memory: "1024Mi"
+          # env:
+            # optional
+            # - name: "ENV"
+            #   # alias of your environment
+            #   value: "PROD"
+            # - name: "REGION"
+            #   value: "us-east-1"
+          ports:
+            - containerPort: 9201
+ 
