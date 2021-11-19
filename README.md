@@ -2,7 +2,7 @@
 
 The Custom Metrics REST API and Java SDK allow users to extend the support of custom metrics beyond the out-of-the-box plugins that ship with Aternity APM. This repo provides various examples of how to publish custom metrics.
 
-To get started with Aternity APM, visit https://steelcentral.net.
+To get started with [Aternity APM](https://www.aternity.com/application-performance-monitoring/), visit https://www.aternity.com/application-performance-monitoring/
 
 
 # REST API
