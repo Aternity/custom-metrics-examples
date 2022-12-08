@@ -33,7 +33,7 @@ import (
 )
 
 const (
-	putEndpoint     = "/Riverbed-Technology/CustomMetrics/1.0.0"
+	putEndpoint     = "/Aternity/CustomMetrics/1.0.0"
 	contentTypeJSON = "application/json"
 )
 

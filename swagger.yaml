@@ -12,7 +12,7 @@
         name: Apache 2.0
         url: http://www.apache.org/licenses/LICENSE-2.0.html
     host: virtserver.swaggerhub.com
-    basePath: /Riverbed-Technology/CustomMetrics/1.0.0
+    basePath: /Aternity/CustomMetrics/1.0.0
     tags:
     - name: custom_metrics
       description: All the APIs you'll need for CMX

@@ -1,20 +1,15 @@
-# Code adapted from
-https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter
+# Prometheus remote storage adapter for Alluvio Aternity APM
 
-# Remote storage adapter
+This is an experimental write adapter that receives samples via Prometheus's remote write protocol and stores them in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). 
 
-This is a write adapter that receives samples via Prometheus's remote write
-protocol and stores them in Aternity APM. It is meant as a
-replacement for the built-in specific remote storage implementations that have
-been removed from Prometheus.
+The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
 
 ## Prerequisite
-1. You have an existing Prometheus instance
-2. You have your own container image repository
-3. You have an Aternity APM Agent(11.4.3+) running and connected to your Aternity APM Analysis Server
 
-## This is experimental
-Running this in production environment `at your own risk`!!
+1. Docker host or Kubernetes cluster with a container image repository
+2. a running Prometheus instance
+3. an Aternity APM account (SaaS), check the website for [trials](https://www.riverbed.com/trial-download/alluvio-aternity)
+3. a running Aternity APM Agent exposing CMX (default port 7074)
 
 ## Build
 
@@ -28,28 +23,43 @@ for docker image
 docker build . -t YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0
 ```
 
-## Running locally
+## Running
 
-`variables in [] are optional`
+Configure the arguments and set the variables, replacing the following token:
 
-Running the binary on a host
+* YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM agent exposing CMX
+* YOUR_CMX_PORT is the CMX port, usually 7074
+* YOUR_ENV_NAME and YOUR_REGION for tagging metrics with ENV and REGION
+
+### Running the binary on a host
+
 ```bash
-# CMX_AGENT_HOSTNAME is an ip/DNS record to your Aternity APM CMX agent
-# CMX_AGENT_PORT is usually 7074
-[REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://ATERNITY_APM_AGENT_HOST:APM_AGENT_PORT/
+[REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="yourextraDim0,Dim0Val,yourextraDim1,Dim1Val"]
 ```
 
-Running as docker container
+> **Note**
+> [...] parts are optional
+
+For example
+
 ```bash
-# CMX_AGENT_HOSTNAME is an ip/DNS record to your Aternity APM CMX agent
-# CMX_AGENT_PORT is usually 7074
-docker run [-e REGION=us-east-1] [-e ENV=latest] YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0 --atny-url=https://ATERNITY_APM_AGENT_HOST:APM_AGENT_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
+REGION=francecentral ENV=prod ./remote_storage_adapter --atny-url=https://aternity_agent_cmx:7074/
 ```
 
-Running in Kubernetes
+### Running as docker container
+
 ```bash
-# assuming the environment you run this command has proper set up in ~/.kube/config,
-# using the yaml template we provide
+docker run [-e REGION=YOUR_REGION] [-e ENV=YOUR_ENV_NAME] YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0 --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="yourextraDim0,Dim0Val,yourextraDim1,Dim1Val"]
+```
+
+> **Note**
+> [...] parts are optional
+
+### Running in Kubernetes
+
+Configure the [yaml template](remote-storage-adapter.yaml)
+
+```bash
 kubectl apply -f ./remote_storage_adapter.yaml
 ```
 
@@ -57,7 +67,6 @@ kubectl apply -f ./remote_storage_adapter.yaml
 
 To configure Prometheus to send samples to this binary, add the following to your `prometheus.yml`:
 
-`Make sure you only use one of the following url:`
 ```yaml
 remote_write:
     # if you run remote storage adapter on an arbitrary host outside your k8s, make sure your prometheus server is able to reach it
@@ -72,17 +81,26 @@ remote_write:
     - url: http://prometheus-remote-storage-adapter.monitoring/write
 ```
 
-## Viewing the K8s dashboard in Aternity APM WebUI
+> **Warning**
+> Make sure you only use one url
 
-We have a starting K8s dashboard for you to play around with.
+## Viewing in Aternity APM WebUI in a custom dashboard
 
-1. Make sure you are have permission to modify CMX dashboard
+We have a starting custom dashboard, "K8s dashboard", for you to play around with.
+
+1. Make sure you are have permission to modify Custom Dashboards
 
 2. Click "Create New Dashboard"
 
 3. In the new CMX dashboard, click the gear button and "Edit JSON"
 
-4. Copy and paste the content of `dashboard.json` in this repo to the dialog.
+4. Copy and paste the content of [dashboard.json](dashboard.json) to the dialog.
 
 5. Save the dashboard
 
+
+### License
+
+Copyright (c) 2022 Riverbed Technology, Inc.
+
+The contents provided here are licensed under the terms and conditions of the MIT License accompanying the software ("License"). The scripts are distributed "AS IS" as set forth in the License. The script also include certain third party code. All such third party code is also distributed "AS IS" and is licensed by the respective copyright holders under the applicable terms and conditions (including, without limitation, warranty and liability disclaimers) identified in the license notices accompanying the software.

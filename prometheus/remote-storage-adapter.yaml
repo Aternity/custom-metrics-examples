@@ -1,3 +1,4 @@
+# requires namespace monitoring
 ---
 # Source: prometheus/templates/server/service.yaml
 apiVersion: v1
@@ -44,20 +45,23 @@ spec:
         - name: atny-remote-storage-adapter
           image: "YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0"
           args:
-            - --atny-url=https://ATERNITY_APM_AGENT_HOST:7074/
+            # Configure arguments --atny-url and optionally --atny-cmx-dimensions
+            - --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/
+            # Example:
+            # - --atny-url=https://aternity_agent_cmx:7074/
             # - --atny-cmx-dimensions='extraDim0,Dim0Val,extraDim1,Dim1Val'
           imagePullPolicy: "Always"
           resources:
             requests:
-                cpu: "125m"
-                memory: "256Mi"
+              cpu: 125m
+              memory: 256Mi
             limits:
-                cpu: "512m"
-                memory: "1024Mi"
+              cpu: 512m
+              memory: 1024Mi
           # env:
-            # optional
+            # Set optional environment variable ENV and REGION to tag metrics
+            # Example:
             # - name: "ENV"
-            #   # alias of your environment
             #   value: "PROD"
             # - name: "REGION"
             #   value: "us-east-1"
