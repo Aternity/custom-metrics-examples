@@ -31,7 +31,7 @@ Configure args and variables:
 * YOUR_CMX_PORT is the CMX port, usually 7074
 * YOUR_ENV_NAME and YOUR_REGION are optional for tagging metrics with ENV and REGION
 
-Running the binary on a host
+### Running the binary on a host
 
 ```bash
 [REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
