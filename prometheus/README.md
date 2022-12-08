@@ -4,7 +4,8 @@ With this remote storage adapter, the prometheus metrics can be collected in [Al
 
 ![Custom Dashboard kubernetes metrics](images/aternity-apm-custom-dashboard-kubernetes-metrics.png)
 
-This remote storage adapter for Alluvio Aternity APM is an experimental write adapter that receives metrics via Prometheus's remote write protocol and stores them in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
+> **Notes**
+> This remote storage adapter for Alluvio Aternity APM is an experimental write adapter that receives metrics via Prometheus's remote write protocol and stores them in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
 
 ## Prerequisite
 
