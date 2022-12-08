@@ -5,9 +5,11 @@ This is an experimental write adapter that receives samples via Prometheus's rem
 The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
 
 ## Prerequisite
-1. You have an existing Prometheus instance
-2. You have your own container image repository
-3. You have an Aternity APM Agent(11.4.3+) running and connected to your Aternity APM Analysis Server
+
+1. Docker host or Kubernetes cluster with a container image repository
+2. a running Prometheus instance
+3. an Aternity APM account (SaaS) - see [Trials for Alluvio Aternity](https://www.riverbed.com/trial-download/alluvio-aternity)
+3. a running Aternity APM Agent exposing CMX (default port 7074)
 
 ## Build
 
@@ -25,24 +27,34 @@ docker build . -t YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0
 
 `variables in [] are optional`
 
-Running the binary on a host
+> YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM CMX agent
+> YOUR_CMX_PORT is the CMX port, usually 7074
+> YOUR_ENV_NAME is an optional tag for the metrics
+> YOUR_REGION is an optional tag for the metrics
+
+- Running the binary on a host
+
 ```bash
-# CMX_AGENT_HOSTNAME is an ip/DNS record to your Aternity APM CMX agent
-# CMX_AGENT_PORT is usually 7074
-[REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://ATERNITY_APM_AGENT_HOST:APM_AGENT_PORT/
+[REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/
 ```
 
-Running as docker container
+For example
+
 ```bash
-# CMX_AGENT_HOSTNAME is an ip/DNS record to your Aternity APM CMX agent
-# CMX_AGENT_PORT is usually 7074
-docker run [-e REGION=us-east-1] [-e ENV=latest] YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0 --atny-url=https://ATERNITY_APM_AGENT_HOST:APM_AGENT_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
+REGION=francecentral ENV=prod ./remote_storage_adapter --atny-url=https://aternity_agent_cmx:7074/
 ```
 
-Running in Kubernetes
+- Running as docker container
+
 ```bash
-# assuming the environment you run this command has proper set up in ~/.kube/config,
-# using the yaml template we provide
+docker run [-e REGION=YOUR_REGION] [-e ENV=YOUR_ENV_NAME] YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0 --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
+```
+
+## Running in Kubernetes
+
+Configure the environment variables in the [yaml template](remote-storage-adapter.yaml)
+
+```bash
 kubectl apply -f ./remote_storage_adapter.yaml
 ```
 
