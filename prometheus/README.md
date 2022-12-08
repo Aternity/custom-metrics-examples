@@ -23,19 +23,18 @@ for docker image
 docker build . -t YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0
 ```
 
-## Running locally
+## Running
 
-`variables in [] are optional`
+Configure args and variables:
 
-> * YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM CMX agent
-> * YOUR_CMX_PORT is the CMX port, usually 7074
-> * YOUR_ENV_NAME is an optional tag for the metrics
-> * YOUR_REGION is an optional tag for the metrics
+* YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM CMX agent
+* YOUR_CMX_PORT is the CMX port, usually 7074
+* YOUR_ENV_NAME and YOUR_REGION are optional for tagging metrics with ENV and REGION
 
-- Running the binary on a host
+Running the binary on a host (`[...] parts are optional`)
 
 ```bash
-[REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/
+[REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
 ```
 
 For example
@@ -44,15 +43,15 @@ For example
 REGION=francecentral ENV=prod ./remote_storage_adapter --atny-url=https://aternity_agent_cmx:7074/
 ```
 
-- Running as docker container
+### Running as docker container (`[...] parts are optional`)
 
 ```bash
 docker run [-e REGION=YOUR_REGION] [-e ENV=YOUR_ENV_NAME] YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0 --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
 ```
 
-## Running in Kubernetes
+### Running in Kubernetes
 
-Configure the environment variables in the [yaml template](remote-storage-adapter.yaml)
+Configure the [yaml template](remote-storage-adapter.yaml)
 
 ```bash
 kubectl apply -f ./remote_storage_adapter.yaml
