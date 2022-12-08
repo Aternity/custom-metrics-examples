@@ -27,10 +27,10 @@ docker build . -t YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0
 
 `variables in [] are optional`
 
-> YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM CMX agent
-> YOUR_CMX_PORT is the CMX port, usually 7074
-> YOUR_ENV_NAME is an optional tag for the metrics
-> YOUR_REGION is an optional tag for the metrics
+> * YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM CMX agent
+> * YOUR_CMX_PORT is the CMX port, usually 7074
+> * YOUR_ENV_NAME is an optional tag for the metrics
+> * YOUR_REGION is an optional tag for the metrics
 
 - Running the binary on a host
 
