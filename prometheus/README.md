@@ -31,11 +31,14 @@ Configure args and variables:
 * YOUR_CMX_PORT is the CMX port, usually 7074
 * YOUR_ENV_NAME and YOUR_REGION are optional for tagging metrics with ENV and REGION
 
-Running the binary on a host (`[...] parts are optional`)
+Running the binary on a host
 
 ```bash
 [REGION=YOUR_REGION] [ENV=YOUR_ENV_NAME] ./remote_storage_adapter --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
 ```
+
+> **Note**
+> [...] parts are optional
 
 For example
 
@@ -43,11 +46,14 @@ For example
 REGION=francecentral ENV=prod ./remote_storage_adapter --atny-url=https://aternity_agent_cmx:7074/
 ```
 
-### Running as docker container (`[...] parts are optional`)
+### Running as docker container
 
 ```bash
 docker run [-e REGION=YOUR_REGION] [-e ENV=YOUR_ENV_NAME] YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0 --atny-url=https://YOUR_ATERNITY_AGENT_HOST:YOUR_CMX_PORT/ [--atny-cmx-dimensions="extraDim0,Dim0Val,extraDim1,Dim1Val"]
 ```
+
+> **Note**
+> [...] parts are optional
 
 ### Running in Kubernetes
 
