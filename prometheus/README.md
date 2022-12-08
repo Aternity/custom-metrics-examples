@@ -76,17 +76,17 @@ remote_write:
     - url: http://prometheus-remote-storage-adapter.monitoring/write
 ```
 
-## Viewing the K8s dashboard in Aternity APM WebUI
+## Viewing in Aternity APM WebUI in a custom dashboard
 
-We have a starting K8s dashboard for you to play around with.
+We have a starting custom dashboard, "K8s dashboard", for you to play around with.
 
-1. Make sure you are have permission to modify CMX dashboard
+1. Make sure you are have permission to modify Custom Dashboards
 
 2. Click "Create New Dashboard"
 
 3. In the new CMX dashboard, click the gear button and "Edit JSON"
 
-4. Copy and paste the content of `dashboard.json` in this repo to the dialog.
+4. Copy and paste the content of [dashboard.json](dashboard.json) to the dialog.
 
 5. Save the dashboard
 
