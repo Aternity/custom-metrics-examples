@@ -1,15 +1,17 @@
 # Prometheus remote storage adapter for Alluvio Aternity APM
 
-This is an experimental write adapter that receives samples via Prometheus's remote write protocol and stores them in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). 
+With this remote storage adapter, the prometheus metrics can be collected in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring) and visualized in the dashboards. For example, in this Custom Dashboard made for Kubernetes clusters:
 
-The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
+![Custom Dashboard kubernetes metrics](images/aternity-apm-custom-dashboard-kubernetes-metrics.png)
+
+This remote storage adapter for Alluvio Aternity APM is an experimental write adapter that receives metrics via Prometheus's remote write protocol and stores them in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
 
 ## Prerequisite
 
 1. Docker host or Kubernetes cluster with a container image repository
 2. a running Prometheus instance
 3. an Aternity APM account (SaaS), check the website for [trials](https://www.riverbed.com/trial-download/alluvio-aternity)
-3. a running Aternity APM Agent exposing CMX (default port 7074)
+3. a running Aternity APM Agent exposing CMX (default is port 7074)
 
 ## Build
 
