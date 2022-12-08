@@ -25,7 +25,7 @@ docker build . -t YOUR_IMAGE_REPO/atny-remote-storage-adapter:0.1.0
 
 ## Running
 
-Configure args and variables:
+Set arguments and variables:
 
 * YOUR_ATERNITY_AGENT_HOST is an ip/DNS record to your Aternity APM CMX agent
 * YOUR_CMX_PORT is the CMX port, usually 7074
