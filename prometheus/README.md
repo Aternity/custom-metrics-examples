@@ -8,7 +8,7 @@ The code is based on [Prometheus remote_storage_adapter example](https://github.
 
 1. Docker host or Kubernetes cluster with a container image repository
 2. a running Prometheus instance
-3. an Aternity APM account (SaaS) - see [Trials for Alluvio Aternity](https://www.riverbed.com/trial-download/alluvio-aternity)
+3. an Aternity APM account (SaaS), check the website for [trials](https://www.riverbed.com/trial-download/alluvio-aternity)
 3. a running Aternity APM Agent exposing CMX (default port 7074)
 
 ## Build
