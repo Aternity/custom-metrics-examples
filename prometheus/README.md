@@ -61,7 +61,6 @@ kubectl apply -f ./remote_storage_adapter.yaml
 
 To configure Prometheus to send samples to this binary, add the following to your `prometheus.yml`:
 
-`Make sure you only use one of the following url:`
 ```yaml
 remote_write:
     # if you run remote storage adapter on an arbitrary host outside your k8s, make sure your prometheus server is able to reach it
@@ -75,6 +74,9 @@ remote_write:
     # if you deploy using the remote-storage-adapter.yaml we provide and didn't change the K8s Service manifest, you can use:
     - url: http://prometheus-remote-storage-adapter.monitoring/write
 ```
+
+> **Warning**
+> Make sure you only use one url
 
 ## Viewing in Aternity APM WebUI in a custom dashboard
 
