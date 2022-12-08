@@ -1,20 +1,13 @@
-# Code adapted from
-https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter
+# Prometheus remote storage adapter for Alluvio Aternity APM
 
-# Remote storage adapter
+This is an experimental write adapter that receives samples via Prometheus's remote write protocol and stores them in [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). 
 
-This is a write adapter that receives samples via Prometheus's remote write
-protocol and stores them in Aternity APM. It is meant as a
-replacement for the built-in specific remote storage implementations that have
-been removed from Prometheus.
+The code is based on [Prometheus remote_storage_adapter example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter). *remote_storage_adapter* is meant as a replacement for the built-in specific remote storage implementations that have been removed from Prometheus.
 
 ## Prerequisite
 1. You have an existing Prometheus instance
 2. You have your own container image repository
 3. You have an Aternity APM Agent(11.4.3+) running and connected to your Aternity APM Analysis Server
-
-## This is experimental
-Running this in production environment `at your own risk`!!
 
 ## Build
 
@@ -86,3 +79,9 @@ We have a starting K8s dashboard for you to play around with.
 
 5. Save the dashboard
 
+
+### License
+
+Copyright (c) 2022 Riverbed Technology, Inc.
+
+The contents provided here are licensed under the terms and conditions of the MIT License accompanying the software ("License"). The scripts are distributed "AS IS" as set forth in the License. The script also include certain third party code. All such third party code is also distributed "AS IS" and is licensed by the respective copyright holders under the applicable terms and conditions (including, without limitation, warranty and liability disclaimers) identified in the license notices accompanying the software.
