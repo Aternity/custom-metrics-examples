@@ -5,10 +5,10 @@ The Custom Metrics REST API and Java SDK allow users to extend the support of cu
 For a quick start, have a look to the examples:
 
 - [hello-world](hello-world)
-- [dashboards](dashboards)
 - [Prometheus](prometheus)
 - [cmx-q](cmx-q)
 - [availability-monitor](availability-monitor)
+- [dashboards](dashboards)
 
 ## REST API
 
