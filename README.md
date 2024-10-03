@@ -1,6 +1,6 @@
 # Riverbed APM - Custom Metrics Examples
 
-The Custom Metrics REST API and Java SDK allow users to extend the support of custom metrics beyond the out-of-the-box plugins that ship with [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). This repo provides various examples of how to publish custom metrics.
+The Custom Metrics REST API and Java SDK allow users to extend the support of custom metrics beyond the out-of-the-box plugins that ship with [APM](https://www.riverbed.com/products/application-performance-monitoring). This repo provides various examples of how to publish custom metrics.
 
 For a quick start, have a look to the examples:
 
@@ -44,6 +44,6 @@ Dimensions with many unique values, like session ids or raw URLs, are often poor
 
 ### License
 
-Copyright (c) 2022 Riverbed Technology, Inc.
+Copyright (c) 2022-2024 Riverbed Technology, Inc.
 
 The contents provided here are licensed under the terms and conditions of the MIT License accompanying the software ("License"). The scripts are distributed "AS IS" as set forth in the License. The script also include certain third party code. All such third party code is also distributed "AS IS" and is licensed by the respective copyright holders under the applicable terms and conditions (including, without limitation, warranty and liability disclaimers) identified in the license notices accompanying the software.
