@@ -1,4 +1,4 @@
-# Alluvio Aternity APM - Custom Metrics Examples
+# Riverbed APM - Custom Metrics Examples
 
 The Custom Metrics REST API and Java SDK allow users to extend the support of custom metrics beyond the out-of-the-box plugins that ship with [Alluvio Aternity APM](https://www.riverbed.com/products/application-performance-monitoring). This repo provides various examples of how to publish custom metrics.
 
